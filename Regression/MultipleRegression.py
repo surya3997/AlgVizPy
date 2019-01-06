@@ -15,10 +15,7 @@ class MultipleRegression:
         self.coeff = np.dot(Ainverse, B)
 
     def predict(self, inpX):
-        y_guess = 0
-        for i, j in zip(self.coeff, inpX):
-            y_guess += i * j
-        return y_guess
+        return sum(np.array(inpX) * self.coeff)
 
 a = 400
 nums = 10

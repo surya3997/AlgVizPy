@@ -20,4 +20,5 @@ class NeuralNetwork:
         self.inp_vector = np.append(inp, 1)
         self.hidden_nodes = matrixMap(sigmoid, np.dot(self.wts_ih, self.inp_vector))
         self.output = matrixMap(sigmoid, np.dot(self.wts_ho, self.hidden_nodes))
+        print(target[0], np.argmax(self.output))
         return self.output

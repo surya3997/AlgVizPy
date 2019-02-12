@@ -14,7 +14,7 @@ lr = 0.1
 epoch = 10
 
 def train_all_inputs(nn):
-    #for j in range(epoch):
+    for j in range(epoch):
         for inp, tar in zip(inp_array, target):
             print(nn.predict(inp, tar))
         print()

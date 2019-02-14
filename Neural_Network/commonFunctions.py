@@ -10,3 +10,6 @@ def matrixMap(function, array):
 
 def sigmoid(value):
     return 1 / (1 + math.exp(-value))
+
+def dsigmoid(value):
+    return value * (1 - value)

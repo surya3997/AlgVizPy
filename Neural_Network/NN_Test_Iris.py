@@ -3,8 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-lr = 0.1
-epoch = 10
+epoch = 150
 
 def train_all_inputs(nn, inp_arr, tar_arr):
     for j in range(epoch):
@@ -15,26 +14,40 @@ def train_all_inputs(nn, inp_arr, tar_arr):
         # print()
 
 def test_nn(nn, inputs, targets):
+    correct = 0
     for ind in range(len(inputs)):
         inp_row, tar_row = inputs.iloc[ind], targets.iloc[ind]
         output = nn.predict(inp_row.values)
-        print(output, tar_row.values[0])
+        actual = tar_row.values[0]
+        print(output, actual)
+        if output == actual:
+            correct += 1
+    print(correct * 100 / len(inputs))
 
-
-def main():
-    data = pd.read_csv('./dataset/iris.csv', header=None)
+def preprocessing(data, output_label):
     data = data.replace('Iris-setosa', 0)
     data = data.replace('Iris-versicolor', 1)
     data = data.replace('Iris-virginica', 2)
 
     train, test = train_test_split(data, test_size=0.2)
+    x_cols = list(train.columns)
+    x_cols.remove(output_label)
+    train_x = train[x_cols]
+    train_y = train[[output_label]]
+    test_x = test[x_cols]
+    test_y = test[[output_label]]
 
-    inp_data = train[[0, 1, 2, 3]]
-    target = train[[4]]
+    return train_x, train_y, test_x, test_y
 
-    nn = NeuralNetwork.NeuralNetwork(4, 5, 3, 0.1)
-    train_all_inputs(nn, inp_data, target)
-    test_nn(nn, test[[0, 1, 2, 3]], test[[4]])
+def main():
+    lr = 0.1
+    data = pd.read_csv('./dataset/iris.csv', header=None)
+    
+    train_x, train_y, test_x, test_y = preprocessing(data, 4)
+
+    nn = NeuralNetwork.NeuralNetwork(4, 5, 3, lr)
+    train_all_inputs(nn, train_x, train_y)
+    test_nn(nn, test_x, test_y)
 
 
 if __name__ == "__main__":

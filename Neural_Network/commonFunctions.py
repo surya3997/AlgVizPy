@@ -12,4 +12,5 @@ def sigmoid(value):
     return 1 / (1 + math.exp(-value))
 
 def dsigmoid(value):
-    return value * (1 - value)
+    fun_val = sigmoid(value)
+    return fun_val * (1 - fun_val)

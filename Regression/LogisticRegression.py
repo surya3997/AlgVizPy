@@ -1,10 +1,13 @@
 from MultipleRegression import MultipleRegression
 from LinearRegression import LinearRegression
-import math, random
+import math
+import random
 import numpy as np
+
 
 def sigmoid(value):
     return 1 / (1 + math.exp(-value))
+
 
 class LogisticRegression:
     def __init__(self, _x, _y):

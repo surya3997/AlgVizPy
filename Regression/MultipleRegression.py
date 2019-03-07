@@ -1,6 +1,7 @@
 import numpy as np
 import random
 
+
 class MultipleRegression:
     def __init__(self, _x, _y):
         self.X = np.array(_x)
@@ -16,6 +17,7 @@ class MultipleRegression:
 
     def predict(self, inpX):
         return sum(np.array(inpX) * self.coeff)
+
 
 a = 400
 nums = 10

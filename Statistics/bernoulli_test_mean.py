@@ -14,7 +14,7 @@ for sample_cnt in range(1, sample_cnts):
 
     prob = head_cnt / sample_cnt
     # print(prob)
-    
+
     greater_eps_cnt = 0
     if abs(prob - 0.5) > epsilon:
         greater_eps_cnt += 1

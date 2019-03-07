@@ -2,6 +2,7 @@ import numpy as np
 import random
 from MultipleRegression import MultipleRegression
 
+
 class PolynomialRegression(MultipleRegression):
     def __init__(self, _x, _y, _dim):
         self.dimension = _dim
@@ -13,6 +14,7 @@ class PolynomialRegression(MultipleRegression):
 
     def predict(self, x_value):
         return super().predict(self.getPowers(x_value))
+
 
 a = 400
 nums = 10

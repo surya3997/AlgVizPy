@@ -1,5 +1,6 @@
 import random
 
+
 class Perceptron:
     def __init__(self, n_input, _lr):
         self.lrate = _lr
@@ -10,7 +11,7 @@ class Perceptron:
 
     def randomize_wts(self, weight_precision=1000):
         self.weights = list()
-        
+
         for i in range(self.num_inputs + 1):
             wt = random.randint(1, weight_precision) / weight_precision
             self.weights.append(wt)
@@ -34,7 +35,7 @@ class Perceptron:
         error = actual - predicted
 
         for i in range(self.num_inputs):
-            self.weights[i] += inputs[i] * error * self.lrate 
+            self.weights[i] += inputs[i] * error * self.lrate
         self.weights[-1] += self.bias * error * self.lrate
 
         return self.weights

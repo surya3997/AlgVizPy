@@ -14,9 +14,10 @@ precision = 4
 
 stopper = 20
 
+
 def calculate_c(r, s, B):
     n = len(A)
-    
+
     if n > 3:
         C = []
 
@@ -26,8 +27,9 @@ def calculate_c(r, s, B):
         for i in range(2, len(A) - 1):
             C.append(B[i] + r * C[i - 1] + s * C[i - 2])
 
-        #print(C)
+        # print(C)
         return(C)
+
 
 def calculate_b(r, s):
     n = len(A)
@@ -50,10 +52,10 @@ def calculate_dels(c_m, b_v):
     d1 = c_m[1][1] * b_v[0] - c_m[0][1] * b_v[1]
     d2 = c_m[0][0] * b_v[1] - c_m[1][0] * b_v[0]
 
-##    print(c_m)
+# print(c_m)
     return(round(d1 / delta, precision), round(d2 / delta, precision))
 
-    
+
 B = calculate_b(r, s)
 C = calculate_c(r, s, B)
 
@@ -68,7 +70,7 @@ cnt = 0
 while del_r != 0 and del_s != 0 and cnt < stopper:
     if math.inf in B:
         break
-    
+
     B = calculate_b(r, s)
     C = calculate_c(r, s, B)
 
@@ -80,7 +82,7 @@ while del_r != 0 and del_s != 0 and cnt < stopper:
     s += del_s
 
 ##    print(del_r, del_s)
-    
+
     cnt += 1
 
 

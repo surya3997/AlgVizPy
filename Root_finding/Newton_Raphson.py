@@ -39,7 +39,7 @@ while(cnt < stopper and x0 != x1):
     x_list.append(x0)
     y_list.append(y)
     cnt += 1
-    
+
 print(x0, '\t', y)
 x_list.append(x0)
 y_list.append(y)

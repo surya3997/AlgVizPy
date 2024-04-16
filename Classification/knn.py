@@ -1,5 +1,7 @@
 import numpy as np
 import operator
+import os
+import sys
 
 
 def clean(data):
@@ -13,8 +15,6 @@ def clean(data):
 
 
 def getCancerData():
-    import os
-    import sys
     prefix_path = os.path.split(sys.argv[0])[0] + '/'
     path = '../dataset/cancer_dataset.csv'
     correct_path = prefix_path + path

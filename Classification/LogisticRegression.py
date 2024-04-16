@@ -1,5 +1,5 @@
-from MultipleRegression import MultipleRegression
-from LinearRegression import LinearRegression
+from regression.MultipleRegression import MultipleRegression
+from regression.LinearRegression import LinearRegression
 import math
 import random
 import numpy as np
